@@ -11,14 +11,23 @@ takanawa.onclick = function() {
   // takanawa.innerHTML = "クリックされた！";
   takanawa.classList.add("blue");
   answerbox11.style.display="block";
+  takanawa.classList.add("stop");
+  takawa.classList.add("stop");
+  kouwa.classList.add("stop");
 }
-
-takawa.onclick = function () {
-  takawa.classList.add("red")
-  answerbox12.style.display="block";
-}
+  
+  takawa.onclick = function () {
+    takawa.classList.add("red")
+    answerbox12.style.display="block";
+    takanawa.classList.add("stop");
+    takawa.classList.add("stop");
+    kouwa.classList.add("stop");
+  }
 
 kouwa.onclick = function () {
   kouwa.classList.add("red")
   answerbox12.style.display="block";
+  takanawa.classList.add("stop");
+  takawa.classList.add("stop");
+  kouwa.classList.add("stop");
 }
