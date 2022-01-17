@@ -1,60 +1,113 @@
 "use strict";
 
+const array = [
+{
+  team: 1,
+  name: '鈴木'
+},
+{
+  team: 2,
+  name: '佐藤',
+},
+{
+  team: 1,
+  name: '田中',
+},
+];
+
+const team1 = array.filter(item => item.team === 1)
+
+team1.forEach(element => {
+  console.log(`${element.name}さん`);
+});
+
+
+
 const box=document.getElementById("box"); 
 
-for (let i = 1; i < 11; i++) {
-  let container = '';
-  container+="<h2 class='quiz"+i+"'>"+i+". この地名はなんて読む？</h2> "+
-    "<div class='quiz-image-container'>"+
-      "<img class='quiz-image"+i+"' src='image/image"+i+".png' alt=''>"+
-    "</div>"+
-    "<ul id>"+
-     '<li class="choice" id="choice'+i+'-1">たかなわ</li>'+
-      '<li class="choice" id="choice'+i+'-2">たかわ</li>'+
-      '<li class="choice" id="choice'+i+'-3">こうわ</li>'+ 
-    '</ul>'+
-    '<div class="answerbox" id="answerbox11">'+
-      '<h3 class="correctanswertitle">正解！</h3>'+
-      '<p class="answerword" id="correctanswer11">正解は「たかなわ」です！</p>'+
-    '</div>'+
-    '<div class="answerbox" id="answerbox12">'+
-      '<h3 class="wronganswertitle">不正解！</h3>'+
-      '<p class="answerword" id="correctanswer12">正解は「たかなわ」です！</p>'+
-    '</div>'
-    box.innerHTML = container
+let answers = [['たかなわ','たかわ','こうわ'],
+['かめど','かめと','かめいど'],
+['おかとまち','こうじまち','かゆまち'],
+['おかどもん','ごせいもん','おなりもん'],
+['たたら','とどろき','たたりき'],
+['せきこうい','しゃくじい','いじい'],
+['ぞうしき','ざっしき','ざっしょく'],
+['みとちょう','ごしろちょう','おかちまち'],
+['ししぼね','ろっこつ','しこね'],
+['こしゃく','こぐれ','こばく']];
+
+let correctanswer = ['たかなわ','かめいど','こうじまち','おなりもん','とどろき','しゃくじい','ぞうしき','おかちまち','ししぼね','こぐれ'];
+
+function shuffle(arr) {
+  for (let s = arr.length - 1; s > 0; s--) {
+    const t = Math.floor(Math.random() * (s + 1));
+    [arr[t], arr[s]] = [arr[s], arr[t]];
   }
+  return arr;
+}
 
-const takanawa= document.getElementById("choice1-1");
-const takawa=document.getElementById("choice1-2");
-const kouwa=document.getElementById("choice1-3");
-const answerbox11= document.getElementById("answerbox11");
-const answerbox12=document.getElementById("answerbox12")
+let container = '';
+for (let i = 0; i < 10; i++) {
+
+  const shuffledchoices = shuffle(answers[i]);
+  console.log(shuffledchoices);
+  
+  let choices = '';
+  for (let j = 0; j < 3; j++) {
+    choices+=`<li class="choice" id="choice${i+1}_${j+1}">${answers[i][j]}</li>`
+
+   
+    // const choice2=document.getElementById(`choice${i+2,j+2}`);
+    // const choice3=document.getElementById(`choice${i+3,j+3}`);
+    }    
+
+  container+=`<h2 class="quiz${i}">${i+1}. この地名はなんて読む？</h2>
+    <div class="quiz-image-container">
+      <img class="quiz-image${i+1}" src="image/image${i+1}.png" alt="">
+    </div>
+    <ul id> ${choices}
+    </ul>
+    <div class="answerbox" id="correctanswerbox${i}">
+      <h3 class="correctanswertitle">正解！</h3>
+      <p class="answerword" id="correctanswer${i+1}">正解は「${correctanswer[i]}」です！</p>
+    </div>
+    <div class="answerbox" id="wronganswerbox${i}">
+      <h3 class="wronganswertitle">不正解！</h3>
+      <p class="answerword" id="wronganswer${i+1}">正解は「${correctanswer[i]}」です！</p>
+    </div>`
+
+  const correctanswerbox=document.getElementById(`correctanswerbox${i}`);
+  const wronganswerbox=document.getElementById(`wronganswerbox${i}`)
+}
+  box.innerHTML = container
 
 
-
-takanawa.onclick = function () {
-  // takanawa.style.backgroundColor = "#08b3f0";
-  // takanawa.innerHTML = "クリックされた！";
-  takanawa.classList.add("blue");
-  answerbox11.style.display="block";
-  takanawa.classList.add("stop");
-  takawa.classList.add("stop");
-  kouwa.classList.add("stop");
+for (let i = 0; i < 10; i++) {
+  for (let j = 0; j < 3; j++) {
+    const chosen=document.getElementById(`choice${i+1}_${j+1}`);
+    const choice1=document.getElementById(`choice${(i+1)}_1`);
+    const choice2=document.getElementById(`choice${(i+1)}_2`);
+    const choice3=document.getElementById(`choice${(i+1)}_3`);
+    const correctanswerbox=document.getElementById(`correctanswerbox${i}`);
+    const wronganswerbox=document.getElementById(`wronganswerbox${i}`);
+    chosen.addEventListener('click', function() {
+      if (correctanswer[i]===answers[i][j]) {
+        chosen.classList.add("blue");
+        correctanswerbox.style.display="block";
+        // choice1.classList.add("stop");
+        // choice2.classList.add("stop");
+        // choice3.classList.add("stop");
+       
+      } else {
+      chosen.onclick = function () {
+        chosen.classList.add("red")
+        wronganswerbox.style.display="block";
+        // choice1.classList.add("stop");
+        // choice2.classList.add("stop");
+        // choice3.classList.add("stop");
+      
+      }}
+    })
+  }
 }
   
-  takawa.onclick = function () {
-    takawa.classList.add("red")
-    answerbox12.style.display="block";
-    takanawa.classList.add("stop");
-    takawa.classList.add("stop");
-    kouwa.classList.add("stop");
-  }
-
-kouwa.onclick = function () {
-  kouwa.classList.add("red")
-  answerbox12.style.display="block";
-  takanawa.classList.add("stop");
-  takawa.classList.add("stop");
-  kouwa.classList.add("stop");
-}
-
