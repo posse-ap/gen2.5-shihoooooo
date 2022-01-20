@@ -1,28 +1,5 @@
 "use strict";
 
-const array = [
-{
-  team: 1,
-  name: '鈴木'
-},
-{
-  team: 2,
-  name: '佐藤',
-},
-{
-  team: 1,
-  name: '田中',
-},
-];
-
-const team1 = array.filter(item => item.team === 1)
-
-team1.forEach(element => {
-  console.log(`${element.name}さん`);
-});
-
-
-
 const box=document.getElementById("box"); 
 
 let answers = [['たかなわ','たかわ','こうわ'],
@@ -61,7 +38,7 @@ for (let i = 0; i < 10; i++) {
     // const choice3=document.getElementById(`choice${i+3,j+3}`);
     }    
 
-  container+=`<h2 class="quiz${i}">${i+1}. この地名はなんて読む？</h2>
+  container+=`<h2 class="quizbox" id="quiz${i}">${i+1}. この地名はなんて読む？</h2>
     <div class="quiz-image-container">
       <img class="quiz-image${i+1}" src="image/image${i+1}.png" alt="">
     </div>
@@ -94,19 +71,16 @@ for (let i = 0; i < 10; i++) {
       if (correctanswer[i]===answers[i][j]) {
         chosen.classList.add("blue");
         correctanswerbox.style.display="block";
-        // choice1.classList.add("stop");
-        // choice2.classList.add("stop");
-        // choice3.classList.add("stop");
-       
+        choice1.classList.add("stop");
+        choice2.classList.add("stop");
+        choice3.classList.add("stop");
       } else {
-      chosen.onclick = function () {
         chosen.classList.add("red")
         wronganswerbox.style.display="block";
-        // choice1.classList.add("stop");
-        // choice2.classList.add("stop");
-        // choice3.classList.add("stop");
-      
-      }}
+        choice1.classList.add("stop");
+        choice2.classList.add("stop");
+        choice3.classList.add("stop");
+      }
     })
   }
 }

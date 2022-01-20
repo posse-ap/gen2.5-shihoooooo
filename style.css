@@ -1,4 +1,10 @@
-.quiz1 {
+.title {
+ color:black;
+ font-size: 19px;
+
+}
+
+.quizbox {
   color:black;
   font-size: 17px;
   line-height: 20px;
@@ -6,9 +12,10 @@
   padding: 13px;
   position:relative;
   width: 500px;
+  /* margin: 15px; */
   /* margin: 10px auto */
 }
-.quiz1::after {
+.quizbox::after {
   content:"";
   display:block;
   width:80px;
