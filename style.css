@@ -1,3 +1,89 @@
-.header {
+header {
+  background-color: #fff;
   height: 64px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.recordbutton {
+  /* text-align: right; */
+  margin-left: auto;
+}
+
+main {
+  background-color:#f5f5f8;
+}
+
+.floaties {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.piecharts {
+  display: flex;
+}
+
+.record {
+  background-color: white;
+  display: flex;
+  gap: 10px;
+  border: 2px solid;
+  border-radius: 10%;
+}
+
+.timeData {
+  background-color: #f5f5f8;
+  display: flex;
+  gap: 20px;
+}
+
+.numbers {
+  flex: 1;
+}
+
+.piecharts {
+  display: flex;
+  gap: 10px;
+  border-radius: 10%;
+  flex: 1;
+}
+
+.data {
+  display: block;
+  /* margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  margin-top: 5%;
+  margin-bottom: 5%; */
+}
+
+.data p {
+  text-align: center;
+}
+
+.rowone {
+color: #0169bb;
+font-weight: 300;
+font-size: 80%;
+}
+
+.rowtwo {
+  color: #101010;
+  font-weight: 500;
+  font-size: 150%;
+}
+
+.rowthree {
+  color: #a3c0d5;
+  font-weight: 100;
+  font-size: 90%;
+}
+
+.bottomdate {
+  text-align: center;
+  margin: 3% 10% 10% 10%;
 }
