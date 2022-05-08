@@ -28,22 +28,87 @@
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
+      <div class="modal-dialog modal-xl" id="modaldialog">
+        <div class="modal-content" id="modalcontent">
+          <div class="modal-header" id="modalheader">
             <!-- <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5> -->
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" id="js-buttonclose" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <div class="modal-body d-flex">
-            <div class="modalleft">
-              
-              <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                <button type="button" class="btn btn-primary mx-auto">記録・投稿</button>
+          <div class="modal-body" id="modalbody">
+            <div class="loader" id="loader">Loading...</div>
+            <div class="complete" id="complete">
+              <image src="img/complete.png" class="completeimage"></image>
+            </div>
+            <div class="entireuppermodal" id="entireuppermodal">
+              <div class="modalleft">
+                <div class="studydate">
+                  学習日
+                  <br>
+                  <label>
+                    <input type="date" name="bday" class="inputarea">
+                  </label>
+
+                  <!-- <p><button>Submit</button></p> -->
+                  </form>
+                </div>
+
+                <div class="studycontents">
+                  学習コンテンツ（複数選択可）
+                  <br>
+                  <input type="checkbox" id="Nyobi" name="Nyobi">
+                  <label for="Nyobi">N予備校</label>
+                  <input type="checkbox" id="dotinstall" name="dotinstall">
+                  <label for="Nyobi">ドットインストール</label>
+                  <input type="checkbox" id="possetask" name="possetask">
+                  <label for="Nyobi">POSSE課題</label>
+                </div>
+
+                <div class="studylanguage">
+                  学習言語（複数選択可）
+                  <br>
+                  <div class="studydatechecks">
+                    <input type="checkbox" id="html" name="html">
+                    <label for="Nyobi">HTML</label>
+                    <input type="checkbox" id="css" name="CSS">
+                    <label for="Nyobi">CSS</label>
+                    <input type="checkbox" id="javascript" name="javascript">
+                    <label for="Nyobi">JAVASCRIPT</label>
+                    <input type="checkbox" id="php" name="php">
+                    <label for="Nyobi">PHP</label>
+                    <input type="checkbox" id="laravel" name="laravel">
+                    <label for="laravel">Laravel</label>
+                    <input type="checkbox" id="javascript" name="javascript">
+                    <label for="Nyobi">SQL</label>
+                    <input type="checkbox" id="javascript" name="javascript">
+                    <label for="Nyobi">SHELL</label>
+                    <input type="checkbox" id="javascript" name="javascript">
+                    <label for="Nyobi">情報システム基礎知識（その他）</label>
+                  </div>
+                </div>
+              </div>
+              <div class="modalright">
+                <div class="studytime">
+                  学習時間
+                  <br>
+                  <textarea name="" id="" cols="50" rows="1.5" class="inputarea"></textarea>
+                </div>
+                <div class="twittercomment">
+                  Twitter用コメント
+                  <textarea name="" id="js-twittercomment" cols="50" rows="10" class="inputarea"></textarea>
+                </div>
+                <div class="twittercheckbox">
+                  <label><input type="checkbox" id="js-twittercheckbox" />Twitterにシェアする</label>
+                </div>
               </div>
             </div>
+            <!-- <div class="modalleft"> -->
+            <div class="modal-footer" id="modalfooter">
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              <button type="button" class="btn btn-primary mx-auto" id="submitbutton">記録・投稿</button>
+            </div>
           </div>
+          <!-- </div> -->
         </div>
 
   </header>
@@ -68,14 +133,16 @@
           </div>
         </div>
         <div class="record barGraph">
-          <canvas id="bargraph"></canvas>
+          <canvas id="bargraph" width="600" height="600"></canvas>
         </div>
       </div>
       <div class="piecharts">
-        <div class="record piechartsGengo">
-          <canvas id="piechartgengo"></canvas>
+        <div class="record piechart">
+          <div><canvas id="piechartgengo"></canvas>          
+          </div>
+          <div></div>
         </div>
-        <div class="record piechartsContents">
+        <div class="record piechart">
           <canvas id="piechartcontents"></canvas>
         </div>
       </div>

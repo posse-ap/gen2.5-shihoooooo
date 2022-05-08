@@ -19,7 +19,7 @@ function bargraph() {
     },
 
     options: {                       // オプション
-      responsive: false,  // canvasサイズ自動設定機能を使わない。HTMLで指定したサイズに固定
+      responsive: true,  // canvasサイズ自動設定機能を使わない。HTMLで指定したサイズに固定
       title: {                           // タイトル
         display: true,                     // 表示設定
         fontSize: 1,                      // フォントサイズ
@@ -190,10 +190,12 @@ var myPieChart = new Chart(ctm, {
     }]
   },
   options: {
+    responsive: true,
     title: {
       display: true,
       text: '学習言語'
     }
+    
   },
   plugins: [dataLabelPlugin1]
 });
@@ -218,6 +220,7 @@ var myPieChart = new Chart(ctq, {
     }]
   },
   options: {
+    responsive: true,
     title: {
       display: true,
       text: '学習コンテンツ'
@@ -225,3 +228,47 @@ var myPieChart = new Chart(ctq, {
   },
   plugins: [dataLabelPlugin1]
 });
+
+
+
+// let submitbutton = document.getElementById("submitbutton");
+
+//投稿ボタンを押したら、ローディング画面が出る、今までのモーダル画面は消える、別タブでtwitterが開く
+
+let twittercomment = document.getElementById('js-twittercomment');
+
+
+document.getElementById("submitbutton").onclick = function() {
+  entireuppermodal.style.display = 'none';
+  modalfooter.style.display = 'none';
+  loader.style.display = 'block';
+ 
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    const complete = document.getElementById('complete');
+    // 👇️ removes element from DOM
+    loader.style.display = 'none';
+    complete.style.display = 'block'
+
+  }, 3000); // 👈️ time in milliseconds
+
+  
+  // ここに#buttonをクリックしたら発生させる処理を記述する
+
+  //checkboxのtruefalse
+  let value = twittercomment.value
+
+  if (document.getElementById("js-twittercheckbox").checked && value) {
+    window.open().location.href = `https://twitter.com/intent/tweet?text=${value}`;
+  }
+};
+
+
+document.getElementById("js-buttonclose").onclick = function () {
+  complete.style.display = 'none';
+  entireuppermodal.style.display = 'block';
+  twittercomment.value = null;
+}
+// if t
+
+// //ローディング画面が３秒で消える、完了画
