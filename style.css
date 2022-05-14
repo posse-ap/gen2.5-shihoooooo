@@ -2,9 +2,15 @@ header {
   background-color: #fff;
   height: 64px;
   display: flex;
-  width: 100%;
+  width: 90%;
+  margin: auto;
   align-items: center;
 }
+
+/* .headerInner {
+  margin: auto;
+  width:
+} */
 
 .recordbutton {
   /* text-align: right; */
@@ -33,12 +39,13 @@ main {
 
 .record {
   background-color: white;
-  display: flex;
+  /* display: flex; */
   gap: 10px;
   /* border: 2px solid; */
   box-shadow: 0 0 20px rgba(0, 0, 0, .15);
   /* 横、上下に影をどれくらい、影をどれくらい広げるか 色、こさ*/
   border-radius: 15px;
+  padding: 10px;
 }
 /*borderradiusはピクセル指定！*/
 
@@ -84,20 +91,20 @@ main {
 
 .rowone {
 color: #0169bb;
-font-weight: 300;
-font-size: 80%;
+font-weight: 500;
+font-size: 20px;
 }
 
 .rowtwo {
   color: #101010;
-  font-weight: 500;
-  font-size: 150%;
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .rowthree {
   color: #a3c0d5;
-  font-weight: 100;
-  font-size: 90%;
+  font-weight: 400;
+  font-size: 30px;
 }
 
 .bottomdate {
@@ -205,5 +212,58 @@ font-size: 80%;
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+
+.chartjs-render-monitor {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.circle {
+  border-radius: 100%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #0169bb;
+  margin-right: 5px;
+}
+
+.submitbtn {
+  background-image: linear-gradient(to left, #3BCEFE, #0F71BC);
+  border-style: none;
+  border-radius: 20px;
+  padding: 5px 30px;
+  color: #fff;
+}
+
+.footerbtn {
+  display: none;
+}
+
+.gengolabel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 5px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .floaties {
+    flex-direction: column;
+  }
+
+  .headerbtn {
+    display: none;
+  }
+
+  .footerbtn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .entireuppermodal {
+    flex-direction: column;
   }
 }

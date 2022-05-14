@@ -15,13 +15,13 @@
 </head>
 
 <body>
-  <header>
+  <header class="headerInner"> 
     <a href=""><img src="img/posseLogo.jpeg" height=64px alt="ロゴ"></a>
     <p class="m-0">4th week
     </p>
     <!-- <button class="recordbutton">記録・投稿</button> -->
 
-    <button type="button" class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="ms-auto submitbtn headerbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       記録・投稿
     </button>
 
@@ -64,7 +64,7 @@
                   <label for="Nyobi">POSSE課題</label>
                 </div>
 
-                <div class="studylanguage">
+                <div class="studylanguage pietitle">
                   学習言語（複数選択可）
                   <br>
                   <div class="studydatechecks">
@@ -88,7 +88,7 @@
                 </div>
               </div>
               <div class="modalright">
-                <div class="studytime">
+                <div class="studytime pietitle">
                   学習時間
                   <br>
                   <textarea name="" id="" cols="50" rows="1.5" class="inputarea"></textarea>
@@ -133,25 +133,45 @@
           </div>
         </div>
         <div class="record barGraph">
-          <canvas id="bargraph" width="600" height="600"></canvas>
+          <canvas id="bargraph" width="600" height="300"></canvas>
         </div>
       </div>
       <div class="piecharts">
         <div class="record piechart">
-          <div><canvas id="piechartgengo"></canvas>          
+          <div><canvas id="piechartgengo" width="300" height="300"></canvas>    
+            <div class="gengolabel">
+              <div><span class="circle" style="background-color:#0345ec"></span>JavaScript</div>
+              <div><span class="circle" style="background-color: #0e71bd;"></span>CSS</div>
+              <div><span class="circle" style="background-color:#1fbdde"></span>PHP</div>
+              <div><span class="circle" style="background-color:#3ccefe"></span>HTML</div>
+              <div><span class="circle" style="background-color: #b29ef3;"></span>Laravel</div>
+              <div><span class="circle" style="background-color: #6d46ec;"></span>SQL</div>
+              <div><span class="circle" style="background-color:#4a17ee"></span>SHELL</div>
+              <div><span class="circle" style="background-color:#3106c0"></span>情報システム基礎知識（その他）</div>
+            </div>
           </div>
           <div></div>
         </div>
         <div class="record piechart">
-          <canvas id="piechartcontents"></canvas>
+            <div><canvas id="piechartcontents" width="300" height="300"></canvas></div>
+          <!-- div、スタイルで調整しない限りは横幅100%縦は中の要素次第 -->
+          <div class="gengolabel">
+            <div><span class="circle" style="background-color:#0345ec"></span>ドットインストール</div>
+            <div><span class="circle" style="background-color: #0e71bd"></span>N予備校</div>
+            <div><span class="circle" style="background-color:#1fbdde"></span>POSSE課題</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="bottomdate"> &lt 2020年10月 &gt </2020>
     </div>
 
   </main>
-  <footer> </footer>
+  <footer>
+    <div class="bottomdate"> &lt 2020年10月 &gt </2020>
+    <button type="button" class="ms-auto submitbtn footerbtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      記録・投稿
+    </button>
+  </footer>
 </body>
 
 </html>

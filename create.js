@@ -59,7 +59,7 @@ function bargraph() {
               // labelString: 'h',     // ラベル
               fontFamily: "sans-serif",      // フォントファミリー
               fontColor: "#2596be",             // 文字の色
-              fontSize: 16                   // フォントサイズ
+              fontSize: 14                   // フォントサイズ
             },
             gridLines: {                   // 補助線
               display: false,               // 補助線なし
@@ -193,7 +193,8 @@ var myPieChart = new Chart(ctm, {
     responsive: true,
     title: {
       display: true,
-      text: '学習言語'
+      text: '学習言語',
+      fontSize: 20,
     }
     
   },
@@ -223,16 +224,15 @@ var myPieChart = new Chart(ctq, {
     responsive: true,
     title: {
       display: true,
-      text: '学習コンテンツ'
+      text: '学習コンテンツ',
+      fontSize: 20
     }
   },
   plugins: [dataLabelPlugin1]
 });
 
 
-
 // let submitbutton = document.getElementById("submitbutton");
-
 //投稿ボタンを押したら、ローディング画面が出る、今までのモーダル画面は消える、別タブでtwitterが開く
 
 let twittercomment = document.getElementById('js-twittercomment');
@@ -252,7 +252,6 @@ document.getElementById("submitbutton").onclick = function() {
 
   }, 3000); // 👈️ time in milliseconds
 
-  
   // ここに#buttonをクリックしたら発生させる処理を記述する
 
   //checkboxのtruefalse
@@ -262,7 +261,6 @@ document.getElementById("submitbutton").onclick = function() {
     window.open().location.href = `https://twitter.com/intent/tweet?text=${value}`;
   }
 };
-
 
 document.getElementById("js-buttonclose").onclick = function () {
   complete.style.display = 'none';
