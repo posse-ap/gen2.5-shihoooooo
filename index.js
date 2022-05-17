@@ -32,8 +32,6 @@ for (let i = 0; i < 10; i++) {
   let choices = '';
   for (let j = 0; j < 3; j++) {
     choices+=`<li class="choice" id="choice${i+1}_${j+1}">${answers[i][j]}</li>`
-    // const choice2=document.getElementById(`choice${i+2,j+2}`);
-    // const choice3=document.getElementById(`choice${i+3,j+3}`);
     }    
 
   container+=`<h2 class="quizbox" id="quiz${i}">${i+1}. この地名はなんて読む？</h2>
