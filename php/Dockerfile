@@ -2,13 +2,6 @@ FROM php:7.2-fpm
 COPY php.ini /usr/local/etc/php/
 
 
-# FROM  nginx:latest
-
-# # author
-# # MAINTAINER  kasai
-
-# # ADD default.conf /etc/nginx/conf.d
-
-# # RUN echo "now building..."
-
-# COPY src /usr/share/nfinx/html
+RUN apt-get update \
+  && apt-get install -y zlib1g-dev mariadb-client vim libzip-dev \
+  && docker-php-ext-install zip pdo_mysql
